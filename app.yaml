@@ -1,0 +1,12 @@
+runtime: go
+env: flex
+
+env_variables:
+  BOT_KEY: 'BOT_KEY_HERE'
+
+manual_scaling:
+  instances: 1
+resources:
+  cpu: 1
+  memory_gb: 0.5
+  disk_size_gb: 10
