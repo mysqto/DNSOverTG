@@ -32,7 +32,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/mysqto/DNSOverTG/dns"
+	"github.com/mysqto/dig"
 	"github.com/mysqto/log"
 
 	tgBot "gopkg.in/tucnak/telebot.v2"
@@ -68,7 +68,7 @@ func main() {
 
 	bot.Handle(tgBot.OnText, func(m *tgBot.Message) {
 
-		answer, err := dns.Dig(strings.Fields(m.Text))
+		answer, err := dig.Dig(strings.Fields(m.Text))
 
 		visited(m.Sender.ID)
 
@@ -114,7 +114,7 @@ func main() {
 		if !m.Private() {
 			return
 		}
-		answer, _ := dns.Dig(strings.Fields("-h"))
+		answer, _ := dig.Dig(strings.Fields("-h"))
 		_, _ = bot.Send(m.Sender, answer)
 	})
 
